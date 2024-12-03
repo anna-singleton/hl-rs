@@ -1,17 +1,11 @@
-use std::io::empty;
-
-use hl_rs::{Highlighter, HighlightScheme};
-use regex::Regex;
+use hl_rs::{highlight_scheme::HighlightScheme, highlighter::Highlighter};
 
 fn main() {
-    let h = Highlighter {
-        schemes: vec![HighlightScheme {
-            re: Regex::new(r"myerror").unwrap(),
-            col: "red".to_string()}
-        ],
-        in_stream: Box::new(empty()),
-        out_stream: Box::new(empty())};
-
-    let s = h.process_line("something myerror somethingelse".to_string());
-    println!("{}", s);
+    let mut h = Highlighter::new(
+        vec![HighlightScheme::new(r"myerror", "red").expect("couldnt parse regex")],
+        Box::new(std::io::stdin()),
+        Box::new(std::io::stdout()));
+    if let Err(e) = h.process_to_eof() {
+        panic!("Error during stream processing. {}", e);
+    }
 }
