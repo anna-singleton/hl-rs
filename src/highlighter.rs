@@ -51,6 +51,7 @@ impl Highlighter {
         while let Some(line_in) = self.read_line()? {
             self.write_line(self.process_line(line_in))?;
         }
+        // flush the stream just in case
         self.out_stream_writer.flush()?;
         return Ok(());
     }
@@ -58,6 +59,8 @@ impl Highlighter {
 
 impl Drop for Highlighter {
     fn drop(&mut self) {
+        // when we drop our highlighter we want to be sure we actually wrote
+        // everything we finished processing to the output stream.
         self.out_stream_writer.flush().expect("Could not flush output stream whilst cleaning up.");
     }
 }
