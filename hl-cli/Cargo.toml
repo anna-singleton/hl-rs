@@ -2,6 +2,8 @@
 name = "hl-cli"
 version = "1.0.0"
 edition = "2021"
+license = "MIT"
+description = "A cli tool for colourising / highlighting stdin with regex and writing back to stdout."
 
 [[bin]]
 name = "hl"
