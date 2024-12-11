@@ -2,7 +2,7 @@ mod cli;
 
 use std::process::exit;
 use cli::Cli;
-use hl_rs_lib::highlighter::Highlighter;
+use hl2_lib::highlighter::Highlighter;
 
 fn main() {
     let try_schemes = Cli::create_schemes_from_cli();

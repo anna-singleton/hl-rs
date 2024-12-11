@@ -1,6 +1,6 @@
 use clap::Parser;
 use colored::Color;
-use hl_rs_lib::highlight_scheme::HighlightScheme;
+use hl2_lib::highlight_scheme::HighlightScheme;
 
 #[derive(Parser)]
 #[command(version, about, long_about = None)]

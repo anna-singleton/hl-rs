@@ -1,5 +1,5 @@
 [package]
-name = "hl-rs-lib"
+name = "hl2-lib"
 version = "1.0.0"
 edition = "2021"
 description = "a library for highlighting streams of text via regex."
