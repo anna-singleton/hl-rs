@@ -1,0 +1,14 @@
+[package]
+name = "hl-cli"
+version = "1.0.0"
+edition = "2021"
+
+[[bin]]
+name = "hl"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4.5.23", features = ["derive"] }
+hl-rs-lib = { version = "1.0.0", path = "../" }
+colored = "2.1.0"
+regex = "1.11.1"
