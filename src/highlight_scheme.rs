@@ -3,6 +3,7 @@ use std::str::FromStr;
 use colored::{Color, Styles, Colorize};
 use regex::Regex;
 
+#[derive(Debug)]
 pub struct HighlightScheme {
     /// regex for matching what data needs formatting
     re: Regex,
